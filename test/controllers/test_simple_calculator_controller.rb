@@ -8,7 +8,26 @@ class SimpleCalculatorControllerTests < ControllerTestBase
     self.controller = @@api_client.simple_calculator
   end
 
-  # Test Case to see if summation works
+  # Test Case to see if Calculator works
+  def test_multiplication_test()
+    # Parameters for the API call
+    options = {}
+    options['operation'] = 'MULTIPLY'
+    options['x'] = 5
+    options['y'] = 6
+
+    # Perform the API call through the SDK function
+    result = self.class.controller.get_calculate(options)
+
+    # Test response code
+    assert_equal(@response_catcher.response.status_code, 200)
+
+    # Test whether the captured response is as we expected
+    assert_not_nil(result)
+    assert_equal('30.0', @response_catcher.response.raw_body)
+  end
+
+  # Test Case to see if Calculator works
   def test_summation_test()
     # Parameters for the API call
     options = {}

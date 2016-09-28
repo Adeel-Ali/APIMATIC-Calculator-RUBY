@@ -109,7 +109,7 @@ def get_calculate(options = Hash.new); end
 ```ruby
 collect = Hash.new
 
-operation = ApimaticCalculator::OperationTypeEnum::SUM
+operation = ApimaticCalculator::OperationTypeEnum::MULTIPLY
 collect['operation'] = operation
 
 x = 5
